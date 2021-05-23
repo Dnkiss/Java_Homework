@@ -1,16 +1,17 @@
 package com.github.Dnkiss.Homework_5;
 
 public class Process {
-    private int arriveTime, serviceTime, order;
+    private double arriveTime, serviceTime;
+    private int order;
     Process(int arriveTime, int serviceTime,int order){
         this.arriveTime = arriveTime;
         this.serviceTime = serviceTime;
         this.order = order;
     }
-    public int getArriveTime(){
+    public double getArriveTime(){
         return arriveTime;
     }
-    public int getServiceTime(){
+    public double getServiceTime(){
         return serviceTime;
     }
     public int getOrder(){
