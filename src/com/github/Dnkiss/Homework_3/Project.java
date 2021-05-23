@@ -14,19 +14,26 @@ public class Project
         Random R = new Random();
         File data = new File("d:/data.dat");
         System.out.println("创建文件");
-        DataOutputStream dos = null;
-        dos = new DataOutputStream(new FileOutputStream(data));
-        DataInputStream ios = null;
-        ios = new DataInputStream(new FileInputStream(data));
-        for(int i = 0;i < 10; i++)
+        DataOutputStream dos = new DataOutputStream(new FileOutputStream(data));
+        //创建写入对象 dos，打开文件data（写入从程序写入文件中）
+        DataInputStream dis = new DataInputStream(new FileInputStream(data));
+        //创建读取对象dis
+            for(int i = 0;i < 10; i++)
         {
             int randomNum = R.nextInt(1000) + 1001;
+            //随机数范围在1000到1000+1001-1之间
             System.out.println(randomNum);
+            dos.write(randomNum);
+            //用dos中的一个方法write，往文档中写入数据randomNum
         }
         dos.close();
-        ios.close();
+        dis.close();
+        //关闭文件
         if (data.isFile() && data.exists()){
+            //isfile判断文件是否为文件形式，多用于Linux系统
+            //exists判断路径是否存在
             data.delete();
+            //删除文件
             System.out.println("文件删除");
         }
         else {
